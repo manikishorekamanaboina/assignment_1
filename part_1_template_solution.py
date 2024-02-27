@@ -4,7 +4,7 @@
 # https://peps.python.org/pep-0585/
 
 # GPT on testing functions, mock functions, testing number of calls, and argument values
-# https://chat.openai.com/share/b3fd7739-b691-48f2-bb5e-0d170be4428c
+
 
 
 from sklearn.ensemble import RandomForestClassifier
@@ -211,10 +211,7 @@ class Section1:
             scores['std_fit_time']=np.std(results['fit_time'])
             scores['mean_accuracy']=np.mean(results['test_score'])
             scores['std_accuracy']=np.std(results['test_score'])
-            answer["scores"] = scores
-            """Observation:
-            As we move from 2 splits to 5 splits the mean and std of accuracy increased, but from 5 to 8 folds, there is decrease in both measures, and again from 8 to 16 folds there is sligh increase in mean accuracy, on contrast there's a decrease in std accuracy from 8 to 16.'
-            """
+            answer["scores"] = score
             answer_1[k]=answer
  
  
@@ -317,7 +314,7 @@ class Section1:
             "model_lowest_variance" (float)
             "model_fastest" (float)
         """
-        # print('Bruh')
+     
         # print(answer)
         #answer[]
         return answer
@@ -478,5 +475,5 @@ class Section1:
             "accuracy_best_full_testing"
                
         """
-        # The mean accuracy of Cross validation is around 65% where as when the model trained on the enitre set, It has an 100% acccuracy, So it is higher than that of the mean accuracy of CV.
+    
         return answer
