@@ -131,8 +131,9 @@ class Section3:
             "clf": clf,
             "plot_k_vs_score_train": list(zip(k_values, scores_train)),
             "plot_k_vs_score_test": list(zip(k_values, scores_test)),
-            "text_rate_accuracy_change": "As the value of k increases, top-k accuracy usually improves because the model has more chances to include the correct class within its top k predictions. Nevertheless, with continued growth in k, the incremental gains in accuracy tend to diminish."
-            "text_is_topk_useful_and_why": "Top-k accuracy proves useful in situations where the exact ranking of the correct category is less crucial than ensuring the correct category is present within the top k predictions. This metric is particularly relevant in multi-class classification tasks with numerous categories or scenarios where an approximate prediction holds significance."
+            "text_rate_accuracy_change": "With the increase in k, top-k accuracy typically rises due to the model having more opportunities to encompass the correct class within its top k predictions. However, as k continues to grow, the incremental gains in accuracy tend to taper off",
+            "text_is_topk_useful_and_why": "Top-k accuracy is valuable for situations where the precise ranking of the correct category is less critical than ensuring the correct category appears within the top k selections. This metric is especially pertinent to multi-class classification challenges involving numerous categories or scenarios where an approximate prediction holds significance"   })
+
         print(answer)
         return answer, Xtrain, ytrain, Xtest, ytest
 
@@ -261,7 +262,7 @@ class Section3:
         # seeing if precision is higher than recall
         precision_higher_than_recall = answer['scores']['mean_precision'] > answer['scores']['mean_recall']
         answer['is_precision_higher_than_recall'] = precision_higher_than_recall
-        answer['explain_is_precision_higher_than_recall'] = "Within the model, precision surpasses recall, indicating its proficiency in accurately identifying true positive cases among positive predictions. This tendency is often observed in datasets with imbalanced class distributions, where the model excels at minimizing false positives but may not be as effective in reducing false negatives. Essentially, the model prioritizes the accuracy of positive predictions, ensuring their correctness while potentially sacrificing the identification of every actual positive instance."        
+        answer['explain_is_precision_higher_than_recall'] = "The model exhibits higher precision than recall, highlighting its effectiveness in accurately identifying true positive cases within the set of positive predictions. This situation commonly arises in datasets with imbalanced class distributions, where the model excels at minimizing false positives while being less proficient at reducing false negatives. In essence, the model's strength lies in ensuring that its positive predictions are correct, prioritizing accuracy over capturing every instance of actual positives."
         print(answer)
         return answer
     
