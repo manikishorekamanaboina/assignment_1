@@ -133,8 +133,6 @@ class Section1:
         answer = {}
         answer["clf"] = clf  # the estimator (classifier instance)
         answer["cv"] = cv  # the cross validator instance
-        # the dictionary with the scores  (a dictionary with
-        # keys: 'mean_fit_time', 'std)_fit_time', 'mean_accuracy', 'std_accuracy'.
         scores={}
         scores['mean_fit_time']=np.mean(results['fit_time'])
         scores['std_fit_time']=np.std(results['fit_time'])
@@ -173,7 +171,7 @@ class Section1:
         scores['mean_accuracy']=np.mean(results['test_score'])
         scores['std_accuracy']=np.std(results['test_score'])
         answer["scores"] = scores
-        answer["explain_kfold_vs_shuffle_split"] = "Pros of Shuffle Shift:- We decide to what size the data is splitted into training and test sets, Gives better generalizaion, as it randomly selects samples for training and testing. Downsides of ShuffleSplit:- Variance, the randomness can often lead to a high variance. Also it doesn't implicilty preserve the training and testing samples, this leads to model train on imbalanced dataset. Pros of Using KFold CV:- Uses all the data/ observations for both training and testing. unlike shuffle split doesn't guarantee, Also Model Stability due to use of entire set. Negative sides of K Fold:- It consumes lot of resources to compute, also its not as flexible as Shuffle split(kfold doesn't provide us with the option to determine what ratio needs to be splitted for training and testing)"
+        answer["explain_kfold_vs_shuffle_split"] = "Pros and Cons of Shuffle-Split:Pros:Control over the size of data splits for training and testing.Improved generalization as it randomly selects samples for training and testing.Cons:Variance: The randomness can lead to high variance.Lack of implicit preservation of training and testing samples, potentially resulting in training on imbalanced datasets.Pros and Cons of K-Fold Cross-Validation:Pros:Utilizes all data/observations for both training and testing.Enhanced model stability due to the use of the entire dataset.Cons:Resource-intensive computation.Less flexibility compared to Shuffle-Split, as K-Fold doesn't allow specifying the ratio for training and testing splits."
         #print(answer)
         return answer
 
